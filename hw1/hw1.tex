@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{ECE 253 Homework 1}
+\date{Fall 2015}
+
+\begin{document}
+
+\maketitle
+
+\begin{ques}
+MATLAB basics
+\begin{enumerate}[(1)]
+\item a
+\item Give a $\Theta$ expression for $T(n)$. Hint: compare its value to that at nearby powers of $2$.
+\item Consider the following purported proof that $T(n)=O(n)$ by induction:
+
+\noindent If $n=1$, then $T(1)=1=O(1)$.
+
+\noindent If $T(m)=O(m)$ for $m < n$, then
+$$
+T(n) =2T(\lfloor n/2\rfloor) + n = O(n) + O(n) = O(n).
+$$
+
+\noindent Thus, $T(n)=O(n)$.
+
+\smallskip \noindent What is wrong with this proof? Hint: consider the implied constants in the big-$O$s.
+\end{enumerate}
+For each of these algorithms, compute the asymptotic runtime in the form $\Theta(-)$.
+\end{ques}
+
+\begin{ques}[Big-$O$ Computations, 20 points]
+For each of the following functions, determine whether or not the expression in question is $\Theta(n^c)$ for some constant $c$, and if so determine the value of such a $c$. Remember to justify your answer.
+\begin{itemize}
+\item $a(n) = \frac{n^2}{7} + 21 + \log(n)$
+\item $b(n) = n+(n-1)+(n-2)+\ldots+1$
+\item $c(n) = 3^{\lceil log_2(n) \rceil}$
+\item $d(n) = \lfloor \log_2(n) \rfloor !$
+\item $e(n) = 2^n$
+\end{itemize}
+\end{ques}
+
+\begin{ques}[Cycle Finding, 30 points]
+Recall that a $4$-cycle in a graph $G$ is a collection of four vertices $v_1,v_2,v_3,v_4$ so that $(v_1,v_2),(v_2,v_3),(v_3,v_4)$ and $(v_4,v_1)$ are all edges of $G$.
+\begin{enumerate}[(a)]
+\item Show that if $G$ is a graph with $|E|\geq 2|V|^{3/2}$, that $G$ must contain a $4$-cycle. Hint: For each vertex $v\in V$ consider all the pairs $(u,w)$ of vertices so that $u$ and $w$ are both adjacent to $v$. If the same pair $(u,w)$ shows up for two different $v$'s, show that there is a $4$-cycle.
+\item Find an efficient algorithm to determine whether or not a given graph $G$ contains a $4$-cycle. What is the asymptotic runtime of this algorithm? You should attempt to do better than the trivial algorithm of simply checking all quadruples $v_1,v_2,v_3,v_4$ of vertices.
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Recurrence Relations, 30 points]
+Consider the recurrence relation
+$$
+T(1) = 1, \ \ \ T(n) = 2T(\lfloor n/2\rfloor) + n.
+$$
+\begin{enumerate}[(a)]
+\item What is the exact value of $T(2^n)$?
+\item Give a $\Theta$ expression for $T(n)$. Hint: compare its value to that at nearby powers of $2$.
+\item Consider the following purported proof that $T(n)=O(n)$ by induction:
+
+\noindent If $n=1$, then $T(1)=1=O(1)$.
+
+\noindent If $T(m)=O(m)$ for $m < n$, then
+$$
+T(n) =2T(\lfloor n/2\rfloor) + n = O(n) + O(n) = O(n).
+$$
+
+\noindent Thus, $T(n)=O(n)$.
+
+\smallskip \noindent What is wrong with this proof? Hint: consider the implied constants in the big-$O$s.
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend working on this homework?
+\end{ques}
+
+\end{document} 
